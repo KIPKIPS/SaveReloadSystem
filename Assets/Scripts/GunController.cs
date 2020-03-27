@@ -18,9 +18,12 @@ public class GunController : MonoBehaviour {
     private float timer = 0;//计时器
 
     private GameObject bullet;
+
+    private Animation anim;
     // Start is called before the first frame update
     void Start() {
         bullet = Resources.Load<GameObject>("Bullet");
+        anim = GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -42,9 +45,10 @@ public class GunController : MonoBehaviour {
             if (Input.GetMouseButtonDown(0)) {
                 GameObject go = Instantiate(bullet, firePos, Quaternion.identity);
                 fireDir = firePos - tailPos;
-                Debug.DrawLine(tailPos,firePos,Color.blue,5);
+                //Debug.DrawLine(tailPos,firePos,Color.blue,5);
                 go.GetComponent<Rigidbody>().AddForce(fireDir.normalized*2000);
                 timer = 0;
+                anim.Play("Grip|Fire");
             }
         }
         
