@@ -8,7 +8,8 @@ public class MonsterManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        ActiveMonster();
+        //ActiveMonster();
+        StartCoroutine(AliveTimer());
     }
 
     // Update is called once per frame
@@ -22,5 +23,11 @@ public class MonsterManager : MonoBehaviour {
         activeMonster = monster[randomIndex];
         activeMonster.SetActive(true);
         activeMonster.GetComponent<BoxCollider>().enabled=true;
+    }
+
+    IEnumerator AliveTimer() {
+        //yield return 12;//12帧之后执行
+        yield return new WaitForSeconds(Random.Range(1,5));
+        ActiveMonster();
     }
 }
