@@ -20,6 +20,7 @@ public class MonsterManager : MonoBehaviour {
         int randomIndex = Random.Range(0, monster.Length);
         activeMonster = monster[randomIndex];
         activeMonster.SetActive(true);
+        activeMonster.GetComponent<Monster>().die = false;
         activeMonster.GetComponent<BoxCollider>().enabled = true;
         StartCoroutine(DeathTimer());
     }
@@ -31,16 +32,16 @@ public class MonsterManager : MonoBehaviour {
     }
     //将激活的怪物取消激活
     public void Deactive() {
-        if (activeMonster!=null) {
+        if (activeMonster != null) {
             activeMonster.GetComponent<BoxCollider>().enabled = false;
             activeMonster.SetActive(false);
-            activeMonster = null;
+            //activeMonster = null;
         }
         StartCoroutine(AliveTimer());
     }
     //死亡时间
     IEnumerator DeathTimer() {
-        yield return new WaitForSeconds(Random.Range(3,8));
+        yield return new WaitForSeconds(Random.Range(3, 8));
         Deactive();
     }
 }
