@@ -14,7 +14,7 @@ public class GunController : MonoBehaviour {
     private float minYRotationt = 0;
 
     //射击间隔
-    private float shootTime = 0.5f;
+    private float shootTime = 0.2f;
     private float timer = 0;//计时器
 
     private GameObject bullet;
@@ -46,7 +46,7 @@ public class GunController : MonoBehaviour {
                 GameObject go = Instantiate(bullet, firePos, Quaternion.identity);
                 fireDir = firePos - tailPos;
                 //Debug.DrawLine(tailPos,firePos,Color.blue,5);
-                go.GetComponent<Rigidbody>().AddForce(fireDir.normalized*2000);
+                go.GetComponent<Rigidbody>().AddForce(fireDir.normalized*5000);
                 timer = 0;
                 anim.Play("Grip|Fire");
             }
