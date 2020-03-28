@@ -7,16 +7,32 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject scorePanel;
     public int score = 0;
-
+    
     private Text scoreText;
+
+    public GameObject pausePanel;
+    public GameObject pauseBtn;
+
+    private Animator anim;
+    public AnimationClip[] ac;
     // Start is called before the first frame update
     void Start() {
         instance = this;
         scoreText = scorePanel.GetComponent<Text>();
+        anim = pausePanel.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update() {
         scoreText.text = "Score : " + score;
+    }
+    public void OnPauseButtonDown() {
+        pausePanel.SetActive(true);
+        pauseBtn.SetActive(false);
+        anim.SetBool("pause", true);
+    }
+    public void OnResumeButtonDown() {
+        anim.SetBool("pause",false);
+        pauseBtn.SetActive(true);
     }
 }

@@ -30,4 +30,6 @@ public class Monster : MonoBehaviour {
         GetComponent<BoxCollider>().enabled = false;
         this.gameObject.SetActive(false);
     }
+
+    
 }
