@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
         canShoot = true;
+        Time.timeScale = 1;
     }
     // Start is called before the first frame update
     void Start() {
         instance = this;
         scoreText = scorePanel.GetComponent<Text>();
         anim = pausePanel.GetComponent<Animator>();
+        score = PlayerPrefs.GetInt("Score");
     }
 
     // Update is called once per frame
@@ -47,14 +49,19 @@ public class GameManager : MonoBehaviour {
         canShoot = true;
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+        PlayerPrefs.SetInt("Score", 0);
     }
 
     public void SaveGame() {
         Debug.Log("保存成功");
+        canShoot = true;
+        Time.timeScale = 1;
+        PlayerPrefs.SetInt("Score",score);
+        anim.SetBool("pause", false);
     }
 
     public void LoadGame() {
-
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame() {
