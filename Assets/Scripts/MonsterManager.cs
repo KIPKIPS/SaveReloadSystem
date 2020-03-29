@@ -48,6 +48,9 @@ public class MonsterManager : MonoBehaviour {
     }
     //死亡音效播放
     public void DieMusicPlay() {
-        audio.Play();
+        if (audio!=null) {
+            audio.Play();
+        }
+        
     }
 }

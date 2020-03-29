@@ -20,10 +20,12 @@ public class GunController : MonoBehaviour {
     private GameObject bullet;
 
     private Animation anim;
+    public AudioSource audio;
     // Start is called before the first frame update
     void Start() {
         bullet = Resources.Load<GameObject>("Bullet");
         anim = GetComponent<Animation>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class GunController : MonoBehaviour {
                 go.GetComponent<Rigidbody>().AddForce(fireDir.normalized*5000);
                 timer = 0;
                 anim.Play("Grip|Fire");
+                audio.Play();
             }
         }
         
