@@ -12,9 +12,13 @@ public class GameManager : MonoBehaviour {
 
     public GameObject pausePanel;
     public GameObject pauseBtn;
-
+    public bool canShoot=true;
     private Animator anim;
     public AnimationClip[] ac;
+
+    void Awake() {
+        canShoot = true;
+    }
     // Start is called before the first frame update
     void Start() {
         instance = this;
@@ -27,11 +31,14 @@ public class GameManager : MonoBehaviour {
         scoreText.text = "Score : " + score;
     }
     public void OnPauseButtonDown() {
+        canShoot = false;
         anim.SetBool("pause", true);
         pausePanel.SetActive(true);
         pauseBtn.SetActive(false);
     }
     public void OnResumeButtonDown() {
+        Time.timeScale = 1;
         anim.SetBool("pause",false);
+        canShoot = true;
     }
 }
