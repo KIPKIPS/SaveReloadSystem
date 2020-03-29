@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject scorePanel;
     public int score = 0;
-    
+    public Toggle OF;
     private Text scoreText;
 
     public GameObject pausePanel;
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
         canShoot = true;
         Time.timeScale = 1;
         audio = GetComponent<AudioSource>();
+        OF = GameObject.Find("BGM").GetComponent<Toggle>();
     }
     // Start is called before the first frame update
     void Start() {
@@ -40,13 +41,13 @@ public class GameManager : MonoBehaviour {
         anim.SetBool("pause", true);
         pausePanel.SetActive(true);
         pauseBtn.SetActive(false);
-        audio.Pause();
+        //audio.Pause();
     }
     public void ResumeGame() {
         Time.timeScale = 1;
         anim.SetBool("pause",false);
         canShoot = true;
-        audio.Play();
+        //audio.Play();
     }
 
     public void NewGame() {
@@ -73,6 +74,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void BGMController() {
-
+        if (OF.isOn) {
+            audio.Play();
+        }
+        else {
+            audio.Pause();
+        }
     }
 }
