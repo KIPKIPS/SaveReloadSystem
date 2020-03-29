@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void NewGame() {
+        canShoot = true;
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
