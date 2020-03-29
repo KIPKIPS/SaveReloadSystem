@@ -28,21 +28,21 @@ public class GunController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        firePos = GameObject.Find("FirePos").transform.position;
-        tailPos = GameObject.Find("TailPos").transform.position;
-        //xy位置与屏幕宽高的百分比
-        float xPos = Input.mousePosition.x / Screen.width;
-        float yPos = Input.mousePosition.y / Screen.height;
-        float xAngle = -Mathf.Clamp(yPos * maxXRotationt, minXRotationt, maxXRotationt) + 20;//竖直方向的旋转角
-        float yAngle = Mathf.Clamp(xPos * maxYRotationt, minYRotationt, maxYRotationt) - 60;//水平方向的旋转角
-
-        //实现旋转
-        transform.eulerAngles = new Vector3(xAngle, yAngle, 0);
-
+        if (GameManager.instance.canShoot) {
+            firePos = GameObject.Find("FirePos").transform.position;
+            tailPos = GameObject.Find("TailPos").transform.position;
+            //xy位置与屏幕宽高的百分比
+            float xPos = Input.mousePosition.x / Screen.width;
+            float yPos = Input.mousePosition.y / Screen.height;
+            float xAngle = -Mathf.Clamp(yPos * maxXRotationt, minXRotationt, maxXRotationt) + 20;//竖直方向的旋转角
+            float yAngle = Mathf.Clamp(xPos * maxYRotationt, minYRotationt, maxYRotationt) - 60;//水平方向的旋转角
+            //实现旋转
+            transform.eulerAngles = new Vector3(xAngle, yAngle, 0);
+        }
         timer += Time.deltaTime;
         if (timer>=shootTime) {
             //TODO:可以射击
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0)&&GameManager.instance.canShoot) {
                 GameObject go = Instantiate(bullet, firePos, Quaternion.identity);
                 fireDir = firePos - tailPos;
                 //Debug.DrawLine(tailPos,firePos,Color.blue,5);
