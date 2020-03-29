@@ -27,12 +27,11 @@ public class GameManager : MonoBehaviour {
         scoreText.text = "Score : " + score;
     }
     public void OnPauseButtonDown() {
+        anim.SetBool("pause", true);
         pausePanel.SetActive(true);
         pauseBtn.SetActive(false);
-        anim.SetBool("pause", true);
     }
     public void OnResumeButtonDown() {
         anim.SetBool("pause",false);
-        pauseBtn.SetActive(true);
     }
 }
