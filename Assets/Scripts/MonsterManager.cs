@@ -5,10 +5,12 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour {
     public GameObject[] monster;//怪物数组
     public GameObject activeMonster;
+    public AudioSource audio;
     // Start is called before the first frame update
     void Start() {
         //ActiveMonster();
         StartCoroutine(AliveTimer());
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,5 +45,9 @@ public class MonsterManager : MonoBehaviour {
     IEnumerator DeathTimer() {
         yield return new WaitForSeconds(Random.Range(3, 8));
         Deactive();
+    }
+    //死亡音效播放
+    public void DieMusicPlay() {
+        audio.Play();
     }
 }
