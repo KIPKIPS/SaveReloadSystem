@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -30,15 +31,35 @@ public class GameManager : MonoBehaviour {
     void Update() {
         scoreText.text = "Score : " + score;
     }
-    public void OnPauseButtonDown() {
+    public void PauseGame() {
         canShoot = false;
         anim.SetBool("pause", true);
         pausePanel.SetActive(true);
         pauseBtn.SetActive(false);
     }
-    public void OnResumeButtonDown() {
+    public void ResumeGame() {
         Time.timeScale = 1;
         anim.SetBool("pause",false);
         canShoot = true;
+    }
+
+    public void NewGame() {
+        SceneManager.LoadScene(0);
+    }
+
+    public void SaveGame() {
+        Debug.Log("保存成功");
+    }
+
+    public void LoadGame() {
+
+    }
+
+    public void QuitGame() {
+
+    }
+
+    public void BGMController() {
+
     }
 }
