@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour {
     public bool canShoot=true;
     private Animator anim;
     public AnimationClip[] ac;
+    public AudioSource audio;
 
     void Awake() {
         canShoot = true;
         Time.timeScale = 1;
+        audio = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start() {
@@ -38,11 +40,13 @@ public class GameManager : MonoBehaviour {
         anim.SetBool("pause", true);
         pausePanel.SetActive(true);
         pauseBtn.SetActive(false);
+        audio.Pause();
     }
     public void ResumeGame() {
         Time.timeScale = 1;
         anim.SetBool("pause",false);
         canShoot = true;
+        audio.Play();
     }
 
     public void NewGame() {
