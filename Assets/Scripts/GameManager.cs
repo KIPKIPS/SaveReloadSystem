@@ -20,10 +20,21 @@ public class GameManager : MonoBehaviour {
     public bool isOn;//音乐是否打开
 
     void Awake() {
+        Debug.Log(PlayerPrefs.GetInt("MusicOn"));
         canShoot = true;
         Time.timeScale = 1;
         audioSource = GetComponent<AudioSource>();
         OF = GameObject.Find("BGM").GetComponent<Toggle>();
+        if (PlayerPrefs.HasKey("MusicOn")) {
+            int value = PlayerPrefs.GetInt("MusicOn");
+            OF.isOn = value == 1;
+            if (value==1) {
+                audioSource.Play();
+            }
+            else {
+                audioSource.Pause();
+            }
+        }
     }
     // Start is called before the first frame update
     void Start() {
@@ -36,6 +47,7 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         scoreText.text = "Score : " + score;
+        
     }
     public void PauseGame() {
         canShoot = false;
@@ -56,6 +68,10 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
         PlayerPrefs.SetInt("Score", 0);
+        if (PlayerPrefs.HasKey("MusicOn")) {
+            int value = PlayerPrefs.GetInt("MusicOn");
+            OF.isOn = value == 1;
+        }
     }
 
     public void SaveGame() {
@@ -80,13 +96,14 @@ public class GameManager : MonoBehaviour {
         if (OF.isOn) {
             audioSource.Play();
             isOn = true;
-            PlayerPrefs.SetInt("Music",1);
+            PlayerPrefs.SetInt("MusicOn",1);
         }
         //暂停
         else {
             audioSource.Pause();
             isOn = false;
-            PlayerPrefs.SetInt("Music", 0);
+            PlayerPrefs.SetInt("MusicOn", 0);
         }
+        PlayerPrefs.Save();//保存设置的PlayerPrefs值
     }
 }
