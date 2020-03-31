@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour {
     public AudioSource audioSource;
     public bool isOn;//音乐是否打开
 
+    public delegate void MusicPlay();
+
+    private MusicPlay mp;
     void Awake() {
         Debug.Log(PlayerPrefs.GetInt("MusicOn"));
         canShoot = true;
@@ -29,11 +32,12 @@ public class GameManager : MonoBehaviour {
             int value = PlayerPrefs.GetInt("MusicOn");
             OF.isOn = value == 1;
             if (value==1) {
-                audioSource.Play();
+                mp = audioSource.Play;
             }
             else {
-                audioSource.Pause();
+                mp = audioSource.Pause;
             }
+            mp();
         }
     }
     // Start is called before the first frame update
