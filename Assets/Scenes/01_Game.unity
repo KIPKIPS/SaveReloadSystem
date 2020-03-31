@@ -2863,7 +2863,8 @@ MonoBehaviour:
   ac:
   - {fileID: 7400000, guid: aeadc9cd4a0749543ac6f3cf45597533, type: 2}
   - {fileID: 7400000, guid: 9abc183d1eb7d9143a2d6e26f9e4df26, type: 2}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  isOn: 0
 --- !u!4 &520150665
 Transform:
   m_ObjectHideFlags: 0
@@ -2889,7 +2890,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1d76c38c21e4e464bb4d01ebce62f124, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
