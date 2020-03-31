@@ -8,20 +8,20 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject scorePanel;
     public int score = 0;
-    public Toggle OF;
-    private Text scoreText;
+    public Toggle OF;//背景音乐开关Toggle组件
+    private Text scoreText;//得分文本框组件
 
     public GameObject pausePanel;
-    public GameObject pauseBtn;
+    public GameObject pauseBtn;//暂停按钮
     public bool canShoot=true;
     private Animator anim;
     public AnimationClip[] ac;
-    public AudioSource audio;
+    public AudioSource audioSource;
 
     void Awake() {
         canShoot = true;
         Time.timeScale = 1;
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         OF = GameObject.Find("BGM").GetComponent<Toggle>();
     }
     // Start is called before the first frame update
@@ -75,10 +75,10 @@ public class GameManager : MonoBehaviour {
 
     public void BGMController() {
         if (OF.isOn) {
-            audio.Play();
+            audioSource.Play();
         }
         else {
-            audio.Pause();
+            audioSource.Pause();
         }
     }
 }
