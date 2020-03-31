@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     private Animator anim;
     public AnimationClip[] ac;
     public AudioSource audioSource;
+    public bool isOn;//音乐是否打开
 
     void Awake() {
         canShoot = true;
@@ -74,11 +75,18 @@ public class GameManager : MonoBehaviour {
     }
 
     public void BGMController() {
+        //通过判断单选框是否被勾选上来决定音乐的播放
+        //播放
         if (OF.isOn) {
             audioSource.Play();
+            isOn = true;
+            PlayerPrefs.SetInt("Music",1);
         }
+        //暂停
         else {
             audioSource.Pause();
+            isOn = false;
+            PlayerPrefs.SetInt("Music", 0);
         }
     }
 }
