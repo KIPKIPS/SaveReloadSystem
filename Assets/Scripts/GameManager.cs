@@ -1,4 +1,4 @@
-﻿using LitJson;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -210,10 +210,11 @@ public class GameManager : MonoBehaviour {
         Save save = CreateSaveObject();
         string filePath = Application.dataPath + "/StreamingFile" + "/GameDataJSON.json";
         //将对象转化为字符串
-        string jsonStr = JsonMapper.ToJson(save);
-        //将字符串写入文件
-        StreamWriter writer=new StreamWriter(filePath);
-        writer.Write(jsonStr);
+        string jsonStr = JsonConvert.SerializeObject(save);
+        Console.WriteLine(jsonStr);
+        //将转换过后的json字符串写入json文件
+        StreamWriter writer = new StreamWriter(filePath);
+        writer.Write(jsonStr);//写入文件
         writer.Close();
         AssetDatabase.Refresh();
     }
@@ -225,8 +226,8 @@ public class GameManager : MonoBehaviour {
         reader.Close();
         //Debug.Log(jsonStr);
         //字符串转换为save对象
-        Save data = JsonMapper.ToObject<Save>(jsonStr);
-        return new Save();
+        Save data = JsonConvert.DeserializeObject<Save>(jsonStr);
+        return data;
     }
 
 }
