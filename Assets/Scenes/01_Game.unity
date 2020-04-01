@@ -472,6 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &150157277
 Animation:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &153202369
 Animation:
   m_ObjectHideFlags: 0
@@ -582,6 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &154965941
 Animation:
   m_ObjectHideFlags: 0
@@ -637,6 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &181956780
 Animation:
   m_ObjectHideFlags: 0
@@ -692,6 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &208343535
 Animation:
   m_ObjectHideFlags: 0
@@ -971,7 +976,8 @@ MonoBehaviour:
   - {fileID: 1009156160}
   - {fileID: 698753318}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 0
 --- !u!33 &222025980
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1241,7 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15e310bff541a84e849c9fd64483c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!82 &287206403
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1436,6 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &310604037
 Animation:
   m_ObjectHideFlags: 0
@@ -1713,6 +1720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &376939389
 Animation:
   m_ObjectHideFlags: 0
@@ -2047,7 +2055,8 @@ MonoBehaviour:
   - {fileID: 462709919}
   - {fileID: 310604035}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 6
 --- !u!33 &449229104
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2340,7 +2349,8 @@ MonoBehaviour:
   - {fileID: 150157275}
   - {fileID: 181956778}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 1
 --- !u!33 &462388745
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2386,6 +2396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &462709921
 Animation:
   m_ObjectHideFlags: 0
@@ -2441,6 +2452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &463935864
 Animation:
   m_ObjectHideFlags: 0
@@ -2605,6 +2617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &473811095
 Animation:
   m_ObjectHideFlags: 0
@@ -2733,6 +2746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &488574939
 Animation:
   m_ObjectHideFlags: 0
@@ -2788,6 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &516010616
 Animation:
   m_ObjectHideFlags: 0
@@ -3281,6 +3296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &593477323
 Animation:
   m_ObjectHideFlags: 0
@@ -3574,6 +3590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &645208734
 Animation:
   m_ObjectHideFlags: 0
@@ -3714,6 +3731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &675052138
 Animation:
   m_ObjectHideFlags: 0
@@ -3842,6 +3860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &687184442
 Animation:
   m_ObjectHideFlags: 0
@@ -3897,6 +3916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &698753320
 Animation:
   m_ObjectHideFlags: 0
@@ -4118,6 +4138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &811998056
 Animation:
   m_ObjectHideFlags: 0
@@ -4173,6 +4194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &936121879
 Animation:
   m_ObjectHideFlags: 0
@@ -4568,6 +4590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &1009156162
 Animation:
   m_ObjectHideFlags: 0
@@ -4847,6 +4870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &1104203596
 Animation:
   m_ObjectHideFlags: 0
@@ -5228,7 +5252,8 @@ MonoBehaviour:
   - {fileID: 1528110951}
   - {fileID: 1682911746}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 7
 --- !u!33 &1150176493
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5539,6 +5564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &1221809397
 Animation:
   m_ObjectHideFlags: 0
@@ -5825,6 +5851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &1264903039
 Animation:
   m_ObjectHideFlags: 0
@@ -5880,6 +5907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &1317403605
 Animation:
   m_ObjectHideFlags: 0
@@ -6225,7 +6253,8 @@ MonoBehaviour:
   - {fileID: 463935862}
   - {fileID: 1942880645}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 8
 --- !u!33 &1376298088
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6419,6 +6448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &1431522035
 Animation:
   m_ObjectHideFlags: 0
@@ -6588,7 +6618,8 @@ MonoBehaviour:
   - {fileID: 208343533}
   - {fileID: 488574937}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 4
 --- !u!33 &1433206924
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6634,6 +6665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &1436983825
 Animation:
   m_ObjectHideFlags: 0
@@ -6762,6 +6794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &1460988136
 Animation:
   m_ObjectHideFlags: 0
@@ -7169,6 +7202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &1528110953
 Animation:
   m_ObjectHideFlags: 0
@@ -7224,6 +7258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &1542681025
 Animation:
   m_ObjectHideFlags: 0
@@ -7573,7 +7608,8 @@ MonoBehaviour:
   - {fileID: 811998054}
   - {fileID: 1815610252}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 4
 --- !u!33 &1635547340
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7948,6 +7984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 2
 --- !u!111 &1666554374
 Animation:
   m_ObjectHideFlags: 0
@@ -8003,6 +8040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &1682911748
 Animation:
   m_ObjectHideFlags: 0
@@ -8058,6 +8096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 0
 --- !u!111 &1687048758
 Animation:
   m_ObjectHideFlags: 0
@@ -8227,7 +8266,8 @@ MonoBehaviour:
   - {fileID: 1666554372}
   - {fileID: 687184440}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 5
 --- !u!33 &1690684226
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8719,6 +8759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 1
 --- !u!111 &1785013649
 Animation:
   m_ObjectHideFlags: 0
@@ -8774,6 +8815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &1815610254
 Animation:
   m_ObjectHideFlags: 0
@@ -9332,6 +9374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &1942880647
 Animation:
   m_ObjectHideFlags: 0
@@ -9843,6 +9886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  type: 4
 --- !u!111 &2064656236
 Animation:
   m_ObjectHideFlags: 0
@@ -10120,7 +10164,8 @@ MonoBehaviour:
   - {fileID: 675052136}
   - {fileID: 2064656234}
   activeMonster: {fileID: 0}
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
+  gridPos: 3
 --- !u!33 &2111837578
 MeshFilter:
   m_ObjectHideFlags: 0
