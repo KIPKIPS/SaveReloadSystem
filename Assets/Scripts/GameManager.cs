@@ -226,7 +226,6 @@ public class GameManager : MonoBehaviour {
         //Debug.Log(jsonStr);
         //字符串转换为save对象
         Save data = JsonMapper.ToObject<Save>(jsonStr);
-        
         return new Save();
     }
 
