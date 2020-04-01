@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour {
             //monsterGrids[g[0]].SetActive(true);
             //激活type的怪物
             monsterGrids[g[0]].GetComponent<MonsterManager>().ActiveMonsterByType(g[1]);
-            Debug.Log(g[0]+" "+g[1]);
+            //Debug.Log(g[0]+" "+g[1]);
         }
     }
 
@@ -197,14 +197,14 @@ public class GameManager : MonoBehaviour {
     }
     //XML方法存取
     public void XMLSave() {
-
+        
     }
     public void XMLLoad() {
 
     }
     //JSON方法存取
     public void JSONSave() {
-
+        Save save = CreateSaveObject();
     }
     public void JSONLoad() {
 
