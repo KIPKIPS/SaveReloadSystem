@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LitJson;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -87,7 +88,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SaveGame() {
-        BinarySave();
+        JSONSave();
+        //BinarySave();
         Time.timeScale = 1;
         Debug.Log("保存成功");
         canShoot = true;
@@ -105,7 +107,8 @@ public class GameManager : MonoBehaviour {
         //    int value = PlayerPrefs.GetInt("MusicOn");
         //    OF.isOn = value == 1;
         //}
-        Save data = BinaryLoad();
+        Save data = JSONLoad();
+        //Save data = BinaryLoad();
         isOn = data.bgm;
         score = data.score;
         //Debug.Log(data.grid.Count);
@@ -205,9 +208,21 @@ public class GameManager : MonoBehaviour {
     //JSON方法存取
     public void JSONSave() {
         Save save = CreateSaveObject();
+        string filePath = Application.dataPath + "/StreamingFile" + "/GameDataJSON.json";
+        //将对象转化为字符串
+        string jsonStr = JsonMapper.ToJson(save);
+        //将字符串写入文件
+        StreamWriter writer=new StreamWriter(filePath);
+        writer.Write(jsonStr);
+        writer.Close();
+        AssetDatabase.Refresh();
     }
-    public void JSONLoad() {
-
+    public Save JSONLoad() {
+        string filePath = Application.dataPath + "/StreamingFile" + "/GameDataJSON.json";
+        StreamReader reader=new StreamReader(filePath);
+        JsonReader jsonObj=new JsonReader(reader.ReadToEnd());
+        Save data = JsonMapper.ToObject<Save>(jsonObj);
+        return data;
     }
 
 }
