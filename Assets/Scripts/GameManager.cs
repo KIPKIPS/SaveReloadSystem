@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour {
     }
     //XML方法存取
     public void XMLSave() {
-        
+        Save save = CreateSaveObject();
     }
     public void XMLLoad() {
 
@@ -229,5 +229,4 @@ public class GameManager : MonoBehaviour {
         Save data = JsonConvert.DeserializeObject<Save>(jsonStr);
         return data;
     }
-
 }
