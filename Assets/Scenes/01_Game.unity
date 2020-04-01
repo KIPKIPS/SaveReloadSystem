@@ -2880,6 +2880,16 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 9abc183d1eb7d9143a2d6e26f9e4df26, type: 2}
   audioSource: {fileID: 0}
   isOn: 0
+  monsterGrids:
+  - {fileID: 222025977}
+  - {fileID: 462388742}
+  - {fileID: 2111837575}
+  - {fileID: 1635547338}
+  - {fileID: 1433206921}
+  - {fileID: 1690684223}
+  - {fileID: 449229101}
+  - {fileID: 1150176490}
+  - {fileID: 1376298085}
 --- !u!4 &520150665
 Transform:
   m_ObjectHideFlags: 0

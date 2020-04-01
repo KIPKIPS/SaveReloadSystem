@@ -56,6 +56,7 @@ public class MonsterManager : MonoBehaviour {
         }
     }
 
+    //刷新怪物,新游戏时调用
     public void UpdateMonster() {
         Debug.Log("刷新场景");
         //清空信息
@@ -68,6 +69,7 @@ public class MonsterManager : MonoBehaviour {
         StartCoroutine(AliveTimer());
     }
 
+    //按照给定的怪物类型激活怪物
     public void ActiveMonsterByType(int type) {
         //清空信息
         StopAllCoroutines();
