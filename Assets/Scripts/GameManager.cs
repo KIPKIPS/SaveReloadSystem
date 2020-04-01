@@ -219,10 +219,15 @@ public class GameManager : MonoBehaviour {
     }
     public Save JSONLoad() {
         string filePath = Application.dataPath + "/StreamingFile" + "/GameDataJSON.json";
+        //读取文件
         StreamReader reader=new StreamReader(filePath);
-        JsonReader jsonObj=new JsonReader(reader.ReadToEnd());
-        Save data = JsonMapper.ToObject<Save>(jsonObj);
-        return data;
+        string jsonStr = reader.ReadToEnd();
+        reader.Close();
+        //Debug.Log(jsonStr);
+        //字符串转换为save对象
+        Save data = JsonMapper.ToObject<Save>(jsonStr);
+        
+        return new Save();
     }
 
 }

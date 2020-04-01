@@ -58,7 +58,7 @@ public class MonsterManager : MonoBehaviour {
 
     //刷新怪物,新游戏时调用
     public void UpdateMonster() {
-        Debug.Log("刷新场景");
+        //Debug.Log("刷新场景");
         //清空信息
         if (activeMonster != null) {
             activeMonster.GetComponent<BoxCollider>().enabled = false;
