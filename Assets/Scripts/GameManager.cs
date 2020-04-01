@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoadGame() {
+        anim.SetBool("pause", false);
         canShoot = true;
         Time.timeScale = 1;
         //SceneManager.LoadScene(0);
@@ -104,14 +105,25 @@ public class GameManager : MonoBehaviour {
         //    int value = PlayerPrefs.GetInt("MusicOn");
         //    OF.isOn = value == 1;
         //}
-//        Save data = BinaryLoad();
-//        isOn = data.bgm;
-//        score = data.score;
-//        foreach (var g in data.grid) {
-//            monsterGrids[g[0]].SetActive(true);
-//            //激活type的怪物
-//            monsterGrids[g[0]].GetComponent<MonsterManager>().ActiveMonsterByType(g[1]);
-//        }
+        Save data = BinaryLoad();
+        isOn = data.bgm;
+        score = data.score;
+        //Debug.Log(data.grid.Count);
+        foreach (var mon in monsterGrids) {
+            MonsterManager mm = mon.GetComponent<MonsterManager>();
+            if (mm.activeMonster!=null) {
+                mm.activeMonster.GetComponent<BoxCollider>().enabled = false;
+                mm.activeMonster.SetActive(false);
+                mm.activeMonster = null;
+            }
+            
+        }
+        foreach (var g in data.grid) {
+            //monsterGrids[g[0]].SetActive(true);
+            //激活type的怪物
+            monsterGrids[g[0]].GetComponent<MonsterManager>().ActiveMonsterByType(g[1]);
+            Debug.Log(g[0]+" "+g[1]);
+        }
     }
 
     public void QuitGame() {
@@ -145,14 +157,17 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject grid in monsterGrids) {
             MonsterManager mm = grid.GetComponent<MonsterManager>();
             //若格子存在激活怪物
-            if (mm.activeMonster!=null) {
-                int[] info=new int[2];
-                //将格子的位置存储
-                info[0] = mm.gridPos;
-                //将怪物类型存储
-                info[1]=mm.activeMonster.GetComponent<Monster>().type;
-                save.grid.Add(info);
+            if (mm.activeMonster!=null&& mm.activeMonster.GetComponent<Monster>()!=null) {
+                if (mm.activeMonster.GetComponent<Monster>().die == false) {
+                    int[] info = new int[2];
+                    //将格子的位置存储
+                    info[0] = mm.gridPos;
+                    //将怪物类型存储
+                    info[1] = mm.activeMonster.GetComponent<Monster>().type;
+                    save.grid.Add(info);
+                }
             }
+            //Debug.Log(save.grid.Count);
             save.score = score;
             save.bgm = isOn;
         }
@@ -171,13 +186,15 @@ public class GameManager : MonoBehaviour {
         file.Close();
         AssetDatabase.Refresh();
     }
-//    public Save BinaryLoad() {
-//        //二进制格式器
-//        BinaryFormatter formatter = new BinaryFormatter();
-//        FileStream file = File.Open(Application.dataPath + "/StreamingFile" + "/GameDataBinary.txt", FileMode.Open);
-//        Save data=(Save)formatter.Deserialize(file);
-//        return data;
-//    }
+    public Save BinaryLoad() {
+        //二进制格式器
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream file = File.Open(Application.dataPath + "/StreamingFile" + "/GameDataBinary.txt", FileMode.Open);
+        //反序列化
+        Save data=(Save)formatter.Deserialize(file);
+        file.Close();
+        return data;
+    }
     //XML方法存取
     public void XMLSave() {
 

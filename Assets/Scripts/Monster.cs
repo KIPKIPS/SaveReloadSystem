@@ -23,9 +23,9 @@ public class Monster : MonoBehaviour {
     }
     IEnumerator AnimateChange() {
         if (die == false) {
+            die = true;
             GameManager.instance.score += 1;
             anim.Play(name + "_die");
-            die = true;
             SendMessageUpwards("DieMusicPlay");
         }
         yield return new WaitForSeconds(1f);
