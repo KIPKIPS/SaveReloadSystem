@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,10 +19,10 @@ public class GameManager : MonoBehaviour {
     public AnimationClip[] ac;
     public AudioSource audioSource;
     public bool isOn;//音乐是否打开
-
     public delegate void MusicPlay();
-
     private MusicPlay mp;
+
+    public event Action newGame;//声明一个事件,发布消息
     void Awake() {
         Debug.Log(PlayerPrefs.GetInt("MusicOn"));
         canShoot = true;
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
         PlayerPrefs.SetInt("Score", 0);
+        newGame?.Invoke();
         if (PlayerPrefs.HasKey("MusicOn")) {
             int value = PlayerPrefs.GetInt("MusicOn");
             OF.isOn = value == 1;

@@ -16,7 +16,7 @@ public class MonsterManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        
     }
 
     void ActiveMonster() {
@@ -26,6 +26,8 @@ public class MonsterManager : MonoBehaviour {
         activeMonster.GetComponent<Monster>().die = false;
         activeMonster.GetComponent<BoxCollider>().enabled = true;
         StartCoroutine(DeathTimer());
+        //订阅管理者的消息,一旦发现newGame触发,就调用UpdateMonster方法
+        GameManager.instance.newGame += UpdateMonster;
     }
     //随机激活怪物时间
     IEnumerator AliveTimer() {
@@ -52,5 +54,32 @@ public class MonsterManager : MonoBehaviour {
         if (audioSource != null) {
             audioSource.Play();
         }
+    }
+
+    public void UpdateMonster() {
+        Debug.Log("刷新场景");
+        //清空信息
+        if (activeMonster != null) {
+            activeMonster.GetComponent<BoxCollider>().enabled = false;
+            activeMonster.SetActive(false);
+            activeMonster = null;
+        }
+        StopAllCoroutines();
+        StartCoroutine(AliveTimer());
+    }
+
+    public void ActiveMonsterByType(int type) {
+        //清空信息
+        StopAllCoroutines();
+        if (activeMonster!=null) {
+            activeMonster.GetComponent<BoxCollider>().enabled = false;
+            activeMonster.SetActive(false);
+        }
+        activeMonster = null;
+        //设置重新激活的怪物信息
+        activeMonster = monster[type];
+        activeMonster.SetActive(true);
+        activeMonster.GetComponent<BoxCollider>().enabled = true;
+        StartCoroutine(DeathTimer());
     }
 }
