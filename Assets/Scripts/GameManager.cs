@@ -63,7 +63,8 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        scoreText.text = "Score : " + score; 
+        scoreText.text = "Score : " + score;
+        isOn = OF.isOn;
     }
     public void PauseGame() {
         canShoot = false;
@@ -111,9 +112,11 @@ public class GameManager : MonoBehaviour {
         //    int value = PlayerPrefs.GetInt("MusicOn");
         //    OF.isOn = value == 1;
         //}
-        Save data = JSONLoad();
+        //:TODO 加载方式
+        Save data = XMLLoad();
+        //Save data = JSONLoad();
         //Save data = BinaryLoad();
-        isOn = data.bgm;
+        OF.isOn = data.bgm;
         score = data.score;
         //Debug.Log(data.grid.Count);
         foreach (var mon in monsterGrids) {
@@ -240,8 +243,35 @@ public class GameManager : MonoBehaviour {
         xmlDoc.Save(filePath);//保存至目录
         AssetDatabase.Refresh();//刷新文件
     }
-    public void XMLLoad() {
-
+    public Save XMLLoad() {
+        Save data=new Save();
+        XmlDocument xmlDoc = new XmlDocument();
+        string filePath = Application.dataPath + "/StreamingFile" + "/GameDataXML.xml";
+        xmlDoc.LoadXml(File.ReadAllText(filePath));//获取xml文档的字符串
+        //第一个子节点即为根节点(xml的版本号和字符编码规则)
+        XmlNode root = xmlDoc.FirstChild;//根节点为Save标签
+        XmlNodeList monsters = root.ChildNodes;//获取所有子节点的集合
+        foreach (XmlNode monster in monsters) {
+            if (monster.Name=="Monster") {
+                int[] arr = new int[2];
+                foreach (XmlNode info in monster) {
+                    if (info.Name == "MonsterPos") {
+                        arr[0] = Convert.ToInt32(info.InnerText);
+                    }
+                    else {
+                        arr[1] = Convert.ToInt32(info.InnerText);
+                    }
+                }
+                data.grid.Add(arr);
+            }
+            else if (monster.Name=="Score") {
+                data.score = Convert.ToInt32(monster.InnerText);
+            }
+            else {
+                data.bgm = monster.InnerText == "True";
+            }
+        }
+        return data;
     }
     //JSON方法存取
     public void JSONSave() {

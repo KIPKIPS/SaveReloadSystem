@@ -5,7 +5,11 @@
   </Monster>
   <Monster>
     <MonsterPos>1</MonsterPos>
-    <MonsterType>0</MonsterType>
+    <MonsterType>1</MonsterType>
+  </Monster>
+  <Monster>
+    <MonsterPos>2</MonsterPos>
+    <MonsterType>2</MonsterType>
   </Monster>
   <Monster>
     <MonsterPos>3</MonsterPos>
@@ -13,28 +17,20 @@
   </Monster>
   <Monster>
     <MonsterPos>4</MonsterPos>
-    <MonsterType>0</MonsterType>
-  </Monster>
-  <Monster>
-    <MonsterPos>4</MonsterPos>
-    <MonsterType>0</MonsterType>
+    <MonsterType>1</MonsterType>
   </Monster>
   <Monster>
     <MonsterPos>5</MonsterPos>
     <MonsterType>3</MonsterType>
   </Monster>
   <Monster>
-    <MonsterPos>6</MonsterPos>
-    <MonsterType>3</MonsterType>
-  </Monster>
-  <Monster>
     <MonsterPos>7</MonsterPos>
-    <MonsterType>3</MonsterType>
+    <MonsterType>1</MonsterType>
   </Monster>
   <Monster>
     <MonsterPos>8</MonsterPos>
     <MonsterType>0</MonsterType>
   </Monster>
-  <Score>0</Score>
-  <BGM>False</BGM>
+  <Score>4</Score>
+  <BGM>True</BGM>
 </Save>
