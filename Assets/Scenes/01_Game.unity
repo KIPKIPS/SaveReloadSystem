@@ -7619,7 +7619,7 @@ MonoBehaviour:
   - {fileID: 1815610252}
   activeMonster: {fileID: 0}
   audioSource: {fileID: 0}
-  gridPos: 4
+  gridPos: 3
 --- !u!33 &1635547340
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10175,7 +10175,7 @@ MonoBehaviour:
   - {fileID: 2064656234}
   activeMonster: {fileID: 0}
   audioSource: {fileID: 0}
-  gridPos: 3
+  gridPos: 2
 --- !u!33 &2111837578
 MeshFilter:
   m_ObjectHideFlags: 0

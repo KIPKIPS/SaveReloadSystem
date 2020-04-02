@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -88,8 +89,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SaveGame() {
-        JSONSave();
+        //:TODO 保存方式
+        XMLSave();
+        //JSONSave();
         //BinarySave();
+
         Time.timeScale = 1;
         Debug.Log("保存成功");
         canShoot = true;
@@ -201,6 +205,40 @@ public class GameManager : MonoBehaviour {
     //XML方法存取
     public void XMLSave() {
         Save save = CreateSaveObject();
+        //创建存储路径
+        string filePath = Application.dataPath + "/StreamingFile" + "/GameDataXML.xml";
+        XmlDocument xmlDoc=new XmlDocument();
+        //创建根节点
+        XmlElement root = xmlDoc.CreateElement("Save");
+        //设置根节点的值
+        root.SetAttribute("Name", "SaveFile");
+        //遍历save的数据节点,保存每个节点信息为xml文档
+        XmlElement monster;
+        XmlElement monsterPos;
+        XmlElement monsterType;
+        for (int i = 0; i < save.grid.Count; i++) {
+            monster = xmlDoc.CreateElement("Monster");
+            monsterPos = xmlDoc.CreateElement("MonsterPos");
+            monsterPos.InnerText = save.grid[i][0]+"";
+            monsterType = xmlDoc.CreateElement("MonsterType");
+            monsterType.InnerText = save.grid[i][1]+"";
+
+            monster.AppendChild(monsterPos);
+            monster.AppendChild(monsterType);
+            root.AppendChild(monster);
+        }
+
+        XmlElement score = xmlDoc.CreateElement("Score");
+        score.InnerText = save.score + "";
+        XmlElement bgm = xmlDoc.CreateElement("BGM");
+        bgm.InnerText = save.bgm + "";
+
+        root.AppendChild(score);
+        root.AppendChild(bgm);
+
+        xmlDoc.AppendChild(root);
+        xmlDoc.Save(filePath);//保存至目录
+        AssetDatabase.Refresh();//刷新文件
     }
     public void XMLLoad() {
 
