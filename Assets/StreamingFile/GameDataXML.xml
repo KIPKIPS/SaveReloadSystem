@@ -1,23 +1,11 @@
 <Save Name="SaveFile">
   <Monster>
-    <MonsterPos>0</MonsterPos>
-    <MonsterType>2</MonsterType>
-  </Monster>
-  <Monster>
-    <MonsterPos>1</MonsterPos>
-    <MonsterType>1</MonsterType>
-  </Monster>
-  <Monster>
     <MonsterPos>2</MonsterPos>
-    <MonsterType>2</MonsterType>
+    <MonsterType>0</MonsterType>
   </Monster>
   <Monster>
     <MonsterPos>3</MonsterPos>
     <MonsterType>2</MonsterType>
-  </Monster>
-  <Monster>
-    <MonsterPos>4</MonsterPos>
-    <MonsterType>1</MonsterType>
   </Monster>
   <Monster>
     <MonsterPos>5</MonsterPos>
@@ -25,12 +13,12 @@
   </Monster>
   <Monster>
     <MonsterPos>7</MonsterPos>
-    <MonsterType>1</MonsterType>
+    <MonsterType>2</MonsterType>
   </Monster>
   <Monster>
     <MonsterPos>8</MonsterPos>
     <MonsterType>0</MonsterType>
   </Monster>
-  <Score>4</Score>
+  <Score>0</Score>
   <BGM>True</BGM>
 </Save>
